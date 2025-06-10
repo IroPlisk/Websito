@@ -17,7 +17,6 @@ jobs:
 
           [Peer]
           PublicKey = ${{ secrets.WG_SERVER_PUBLIC_KEY }}
-          Endpoint = ${{ secrets.SSH_PUBLIC_IP }}:51820
           AllowedIPs = 10.60.223.1/32
           PersistentKeepalive = 25" | sudo tee /etc/wireguard/wg0.conf
 
