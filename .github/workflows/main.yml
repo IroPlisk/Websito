@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy al Server
 
 on:
   push:
@@ -7,15 +7,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Connect to Server & Pull Code
+      - name: Execute SSH Deploy
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /var/www/html       # Go to your website directory
-            git pull origin main             # Pull latest code
-            sudo systemctl restart apache2   # Restart Apache (optional)
+            cd /var/www/html
+            git pull origin main
+            sudo systemctl restart apache2
